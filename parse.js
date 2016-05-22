@@ -16,7 +16,7 @@ Copyright © 2016 TSPrograms.
     for (var i = 0; i < code.length; ++i) {
       char = code.charAt(i)
       if (inString) {
-        if (char === '"' && code.charAt(i - 1) !== '\') {
+        if (char === '"' && code.charAt(i - 1) !== '\\') {
           inString = false;
           continue;
         }
