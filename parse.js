@@ -9,40 +9,10 @@ Copyright © 2016 TSPrograms.
     if (typeof code !== 'string') {
       throw 'Lucid: InputError: Code must be a string!';
     }
-    var inString = false;
-    var spaceRegExp = /\s/;
-    var tokens = [];
-    var char;
-    for (var i = 0; i < code.length; ++i) {
-      char = code.charAt(i)
-      if (inString) {
-        if (char === '"' && code.charAt(i - 1) !== '\\') {
-          inString = false;
-          continue;
-        }
-        tokens[tokens.length - 1] += char;
-        continue;
-      }
-      switch (char) {
-        case '(':
-          
-          break;
-        case ')':
-          
-          break;
-        case '"':
-          
-          break;
-        default:
-          if (spaceRegExp.test(code.charAt(i))) {
-            if (tokens[tokens.length - 1] !== '') {
-              tokens.push('');
-            }
-          }
-          else {
-            
-          }
-      }
-    }
+    // Split the tokens by whitespace or parentheses and return the result
+    return code.trim().split(/\s+|("[\s\S]*?")|(\(|\))/g).filter(Boolean);
+  };
+  var makeTree = function(tokens) {
+    // TODO
   };
 })();
